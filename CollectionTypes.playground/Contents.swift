@@ -3,7 +3,7 @@
 
 //ARRAYS
 /*An array stores values of the same type in an ordered list.
-The same value can appear in an array multiple times at different positions.*/
+    The same value can appear in an array multiple times at different positions.*/
 print("--------------------ARREGLOS----------------------")
 
 //Create an Empty Array
@@ -57,8 +57,8 @@ for (index,value) in shoppingList.enumerated(){
 
 //SETS
 /*A set stores distinct values of the same type in a collection with no defined ordering.
-you can use a set instead of an array when the order of items is not important,
- or when you need to ensure that an item only appear once.*/
+    you can use a set instead of an array when the order of items is not important,
+    or when you need to ensure that an item only appear once.*/
 print("--------------------SETS--------------------------")
 
 //Creating and Initializing an Empty Set
@@ -113,3 +113,54 @@ houseAnimals.isSubset(of: farmAnimals)    //Todos los valores de houseAnimals es
 farmAnimals.isSuperset(of: houseAnimals)  //Todos los valores contienen todos los valores de un set específico?
 farmAnimals.isDisjoint(with: cityAnimals) //No tienen valores en común?
 farmAnimals == houseAnimals               //Son iguales?
+
+
+//DICTIONARIES
+/*A dictionary stores associations between keys of the same type and values of the same type in a collection with no defined ordering. Each value is associated with a unique key, which acts as an identifier for that value within the dictionary. Unlike items in an array, items in a dictionary do not have a specified order. You use a dictionary when you need to look up values based on their identifier, in much the same way that a real-world dictionary is used to look up the definition for a particular word.*/
+print("-----------------DICTIONARIES----------------------")
+
+//Creating an Empty Dictionary
+var namesOfIntegers = [Int: String]()
+namesOfIntegers[16] = "sixteen"
+
+//Creating a Dictionary with a Dictionary Literal
+var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"] //También puede crearse de la siguiente manera:
+//var airports = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+
+//Accessing and Modifying a Dictionary
+print("The airports dictionary contains \(airports.count) items.")
+
+if airports.isEmpty {
+    print("El diccionario de aeropuertos está vacío")
+}else {
+    print("El diccionario tiene aeropuertos")
+}
+
+//Agregar un elemento al diccionario
+airports["LHR"] = "London Heathrow"
+print("The airports dictionary contains \(airports.count) items.")
+
+//Cambiar el valor asociado a determinado key
+airports["LHR"] = "London"
+
+//Obtener un valor por medio de la key
+if let airportName = airports["DUB"] {
+    print("The name of the airport is \(airportName)")
+}else {
+    print("That airport is not in the airports dictionary.")
+}
+
+//Iterating Over a Dictionary
+for (airportCode,airportName) in airports {
+    print("\(airportCode): \(airportName)")
+}
+
+for airportCode in airports.keys {
+print("Airport code: \(airportCode)")
+}
+
+for airportName in airports.values {
+    print("Airport name: \(airportName)")
+}
+
+/*Swift’s Dictionary type does not have a defined ordering. To iterate over the keys or values of a dictionary in a specific order, use the sorted() method on its keys or values property.*/
